@@ -84,12 +84,9 @@ An interactive dashboard analyzing Instagram account performance to evaluate con
 ---
 
 ## Certificates
-
 * **Intro to Data Analysis** – RevoU (December 2025)
 
 ---
 
 ## Contact
-
-* **LinkedIn:** (add link here)
 * **Email:** [abinfarhezi11@gmail.com](mailto:abinfarhezi11@gmail.com)
