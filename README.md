@@ -26,6 +26,7 @@ I am seeking an opportunity as an **entry-level Data Analyst** where I can conti
 ## Portfolio Projects
 
 ### 1. Viewer Financial Statement IDX
+🔗 [View Project Repository](https://abinfahrezi.github.io/Viewer-Laporan-Keuangan-IDX/)
 
 **Description**
 A Python-based financial statement viewer that dynamically generates official **Indonesia Stock Exchange (IDX)** financial statement links for multiple listed companies and reporting years. This tool simplifies access to audited financial reports and performance summaries for financial analysis.
