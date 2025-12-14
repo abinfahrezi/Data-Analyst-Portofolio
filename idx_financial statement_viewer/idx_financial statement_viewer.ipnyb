@@ -1,6 +1,7 @@
+# Update the notebook by regenerating it with GitHub-safe output (no JS)
+
 from nbformat import v4, writes
 
-# Create notebook cells
 cells = []
 
 cells.append(v4.new_markdown_cell(
@@ -9,20 +10,18 @@ cells.append(v4.new_markdown_cell(
 Notebook ini digunakan untuk **menghasilkan link laporan keuangan perusahaan terdaftar di Bursa Efek Indonesia (IDX)**  
 berdasarkan **kode saham, tahun, jenis laporan, dan format file**.
 
-Cocok digunakan untuk:
-- Financial analysis
-- Data collection automation
-- Portfolio demonstrasi Python & data tooling
+✅ **GitHub-friendly**  
+✅ Output langsung terlihat tanpa perlu menjalankan ulang
 """
 ))
 
 cells.append(v4.new_markdown_cell(
 """## 🎯 Fitur Utama
-- Mendukung **Laporan Keuangan Tahunan (Audit)**
-- Mendukung **Performance Summary**
+- Laporan Keuangan Tahunan (Audit)
+- Performance Summary
 - Multi kode saham & multi tahun
-- Output **PDF atau XLSX**
-- Copy link langsung ke clipboard
+- Output PDF atau XLSX
+- Siap untuk automation & portfolio
 """
 ))
 
@@ -60,69 +59,60 @@ if Laporan == "Laporan Keuangan":
     for kode in kode_list:
         for tahun in tahun_list:
             url = template_url.format(tahun=tahun, kode=kode, ext=format)
-            if Link == "Clean Link":
-                print(url)
-                urls.append(url)
-            else:
-                line = f"{kode}-{tahun}:{url}"
-                print(line)
-                urls.append(line)
+            urls.append(url)
 
 elif Laporan == "Performance Summary":
     template_url = (
         "https://www.idx.co.id/Portals/0/StaticData/ListedCompanies/PerformanceSummary/{kode}.pdf"
     )
     for kode in kode_list:
-        url = template_url.format(kode=kode)
-        if Link == "Clean Link":
-            print(url)
-            urls.append(url)
-        else:
-            line = f"{kode}:{url}"
-            print(line)
-            urls.append(line)
+        urls.append(template_url.format(kode=kode))
 
 else:
-    raise ValueError("Pilihan laporan tidak tersedia")"""
+    raise ValueError("Pilihan laporan tidak tersedia")
+
+urls"""
 ))
 
 cells.append(v4.new_code_cell(
 """# ===============================
-# DISPLAY & COPY OUTPUT
+# DISPLAY OUTPUT (GITHUB SAFE)
 # ===============================
 
-from IPython.display import display, HTML
+from IPython.display import display, Markdown
 
 hasil_text = "\\n".join(urls)
 
-display(HTML(f\"\"\"
-<textarea id="outputText" style="width:100%; height:150px">{hasil_text}</textarea><br>
-<button onclick="navigator.clipboard.writeText(document.getElementById('outputText').value)">
-📋 Copy ke Clipboard
-</button>
-\"\"\"))"""
+display(Markdown("## 🔗 Generated IDX Report Links"))
+display(Markdown("```text\\n" + hasil_text + "\\n```"))"""
+))
+
+cells.append(v4.new_code_cell(
+"""# ===============================
+# SAVE OUTPUT TO FILE
+# ===============================
+
+output_path = "idx_report_links.txt"
+
+with open(output_path, "w") as f:
+    f.write(hasil_text)
+
+output_path"""
 ))
 
 cells.append(v4.new_markdown_cell(
-"""## ✅ Output
+"""## ✅ Catatan GitHub
+- Output sudah disimpan di notebook
+- Tidak menggunakan JavaScript
+- Aman untuk preview GitHub
 
-Notebook ini akan menghasilkan **daftar URL resmi IDX** yang bisa langsung:
-- Dibuka di browser
-- Diunduh
-- Digunakan sebagai input pipeline data finansial
-
-Project ini menunjukkan kemampuan:
-- Python scripting
-- Automation data collection
-- Financial data understanding
+📌 Jalankan **Restart & Run All** sebelum commit untuk update parameter
 """
 ))
 
-# Create notebook
 nb = v4.new_notebook(cells=cells)
 
-# Save file
-path = "/mnt/data/IDX_Financial_Report_Viewer.ipynb"
+path = "/mnt/data/IDX_Financial_Report_Viewer_UPDATED.ipynb"
 with open(path, "w", encoding="utf-8") as f:
     f.write(writes(nb))
 
