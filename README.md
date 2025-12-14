@@ -73,7 +73,7 @@ An interactive dashboard analyzing Instagram account performance to evaluate con
 
 * Excel
 * Python
-* Visualization Tool
+* Power BI
 
 **Key Highlights**
 
