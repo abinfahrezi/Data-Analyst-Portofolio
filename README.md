@@ -45,7 +45,8 @@ A Python-based financial statement viewer that dynamically generates official **
 
 ---
 
-### 2. Coffee Shop Sales Analysis
+### 2. Coffee Shop Sales Analysis  
+🔗 [View Project Repository](https://github.com/USERNAME/coffee-shop-sales-analysis)
 
 **Description**
 An end-to-end analysis of coffee shop sales data to understand revenue trends, best-selling products, and customer purchasing patterns.
