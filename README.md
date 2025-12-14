@@ -67,6 +67,7 @@ An end-to-end analysis of coffee shop sales data to understand revenue trends, b
 ---
 
 ### 3. Instagram Performance Dashboard
+🔗 [View Project Repository](https://github.com/abinfahrezi/Data-Analyst-Portofolio/tree/main/instagram_performance_analysis)
 
 **Description**
 An interactive dashboard analyzing Instagram account performance to evaluate content effectiveness and audience engagement.
